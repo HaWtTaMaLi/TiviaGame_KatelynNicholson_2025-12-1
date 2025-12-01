@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36408.4 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TiviaGame_KatelynNicholson_2025-12-1", "TiviaGame_KatelynNicholson_2025-12-1\TiviaGame_KatelynNicholson_2025-12-1.csproj", "{DC925866-8595-4943-A1FB-B485F38531D8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DC925866-8595-4943-A1FB-B485F38531D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC925866-8595-4943-A1FB-B485F38531D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC925866-8595-4943-A1FB-B485F38531D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC925866-8595-4943-A1FB-B485F38531D8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {14BDCE43-180B-47DC-B48B-8D420CEFA623}
+	EndGlobalSection
+EndGlobal
