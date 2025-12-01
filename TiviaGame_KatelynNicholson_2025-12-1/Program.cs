@@ -27,11 +27,24 @@ namespace TiviaGame_KatelynNicholson_2025_12_1
 
         //create dictionary
         Dictionary<string, string> questions = new Dictionary<string, string>();
-        //questions are KEY and answer is Value?
+        //questions are KEY and answer is Value
 
         static void Main()
         {
+            //create dictionary for the questions
+            Dictionary<string, List<string>> questions = new Dictionary<string, List<string>>
+            {
+                {"what", new List<string> {"1", "2", "3", "4"} },
+                {"who", new List<string> {"you", "me", "tom", "jerry"} }
+            };
 
+            //create dictionary for answers
+            Dictionary<string, string> answers = new Dictionary<string, string>
+            {
+                {"what", "4"},
+
+            };
+            
         }
     }
 }
