@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 
 
@@ -26,9 +27,19 @@ namespace TiviaGame_KatelynNicholson_2025_12_1
         //https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2?view=net-10.0
 
         //create dictionary
-        Dictionary<string, string> questions = new Dictionary<string, string>();
+        //Dictionary<string, string> questions = new Dictionary<string, string>();
         //questions are KEY and answer is Value
+        public enum Questions
+        {
 
+        }
+
+        public enum Answers
+        {
+
+        }
+
+        //enums
         static void Main()
         {
             //create dictionary for the questions
@@ -48,4 +59,5 @@ namespace TiviaGame_KatelynNicholson_2025_12_1
             
         }
     }
+
 }
