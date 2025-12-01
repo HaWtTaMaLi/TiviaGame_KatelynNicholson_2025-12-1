@@ -34,14 +34,15 @@ namespace TiviaGame_KatelynNicholson_2025_12_1
             //create dictionary for the questions
             Dictionary<string, List<string>> questions = new Dictionary<string, List<string>>
             {
-                {"what", new List<string> {"1", "2", "3", "4"} },
-                {"who", new List<string> {"you", "me", "tom", "jerry"} }
+                {"what index does an array start at in C#?", new List<string> {"1", "2", "0", "0.1"} },
+                {"what operator checks two conditions at the same time?", new List<string> {"||", "<=", "==", "&&"} }
             };
 
             //create dictionary for answers
             Dictionary<string, string> answers = new Dictionary<string, string>
             {
-                {"what", "4"},
+                {"what index does an array start at in C#?", "0"},
+                {"what operator checks two conditions at the same time?", "&&"}
 
             };
             
