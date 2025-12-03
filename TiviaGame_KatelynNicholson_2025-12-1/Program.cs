@@ -23,41 +23,99 @@ namespace TiviaGame_KatelynNicholson_2025_12_1
         //EXTRA
         //COLOURS, ASCII art, formatting make it look good
         //add an easter egg? a hidden secret? (include note when submitting if you added an easter egg
+       
 
-        //https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2?view=net-10.0
 
-        //create dictionary
-        //Dictionary<string, string> questions = new Dictionary<string, string>();
-        //questions are KEY and answer is Value
-        public enum Questions
+        //Question Index
+        enum QuestionID
         {
-
+            QuestionOne,
+            QuestionTwo, 
+            QuestionThree, 
+            QuestionFour, 
+            QuestionFive, 
+            QuestionSix, 
+            QuestionSeven,
+            QuestionEight,
+            QuestionNine,
+            QuestionTen,
         }
 
-        public enum Answers
+        //blueprint "class"
+        class Question
         {
-
+            public string Ask;    //Question
+            public string[] Options;  //multiple choice
+            public int CorrectAnswer; //where the right answer is stored
         }
 
-        //enums
+        static List<Question> questions = new List<Question>
+        {
+            new Question
+            {
+                Ask = "What index does an array start at in C#?",
+                Options = new string[]
+                {
+                    "0",    //0
+                    "1",    //1
+                    "0.5",  //2
+                    "-0"    //3
+                },
+                CorrectAnswer = 0
+            },  //QuestionOne
+
+             new Question
+             {
+                 Ask = "what operator checks two conditions at the same time?",
+                 Options = new string[]
+                 {
+                     "||", //0
+                     "<=", //1
+                     "==", //2
+                     "&&" //3
+                 },
+                 CorrectAnswer = 3
+             },  //QuestionTwo
+        };
+
+        static int correctCount = 0;
+
         static void Main()
         {
-            //create dictionary for the questions
-            Dictionary<string, List<string>> questions = new Dictionary<string, List<string>>
-            {
-                {"what index does an array start at in C#?", new List<string> {"1", "2", "0", "0.1"} },
-                {"what operator checks two conditions at the same time?", new List<string> {"||", "<=", "==", "&&"} }
-            };
+            PrintQuestions();
+        }
 
-            //create dictionary for answers
-            Dictionary<string, string> answers = new Dictionary<string, string>
+        static void PrintQuestions()
+        {
+            //get length of questions
+            for (int Qu = 0; Qu < questions.Count; Qu++)
             {
-                {"what index does an array start at in C#?", "0"},
-                {"what operator checks two conditions at the same time?", "&&"}
+                Question q = questions[Qu];
 
-            };
-            
+                //Print Ask              
+                Console.WriteLine(q.Ask);
+
+                //get length of Options string
+                for (int Op = 0; Op < q.Options.Length; Op++)
+                {
+                    //Print Options
+                    Console.WriteLine($"{Op + 1}. {q.Options[Op]}");
+                }
+
+                //get player input
+                Console.Write("Your answer: ");
+                string input = Console.ReadLine(); //player enters answer of 1 2 3 or 4
+
+                //try parse: turn input to coice and check choice is equal to the correct answer
+                if (int.TryParse(input, out int choice) && choice - 1 == q.CorrectAnswer)
+                {
+                    correctCount++;
+                    Console.WriteLine("Correct!");
+                }
+                else
+                    Console.WriteLine($"Wrong!");
+            }
+
         }
     }
-
 }
