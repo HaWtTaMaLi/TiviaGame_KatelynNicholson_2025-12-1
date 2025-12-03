@@ -106,23 +106,36 @@ namespace TiviaGame_KatelynNicholson_2025_12_1
                 //get player input
                 Console.Write("Your answer: ");
                 string input = Console.ReadLine(); //player enters answer of 1 2 3 or 4
-
-                double scorePercent = ((double)correctCount / questions.Count) * 100;
+                Console.Clear();
 
                 //try parse: turn input to coice and check choice is equal to the correct answer
                 if (int.TryParse(input, out int choice) && choice - 1 == q.CorrectAnswer)
                 {
                     correctCount++;
                     Console.WriteLine("Correct!");
-                    Console.WriteLine($"Answered Correctly: {scorePercent}%");
+
+
+                    double scorePercent = ((double)correctCount / questions.Count) * 100;
+                    Console.WriteLine($"Answered {correctCount} Correct / {questions.Count} Questions.You got {scorePercent}% Correct");
+                    Console.WriteLine("Press Any Key for the Next Question!");
                 }
                 else
                 {
                     Console.WriteLine($"Wrong!");
-                    Console.WriteLine($"Answered Correctly: {scorePercent}%");
-                }
-            }
 
+                    double scorePercent = ((double)correctCount / questions.Count) * 100;
+                    Console.WriteLine($"Answered {correctCount} Correct / {questions.Count} Questions.You got {scorePercent}% Correct");
+                    Console.WriteLine("Press Any Key for the Next Question!");
+                }
+                Console.ReadKey();
+                Console.Clear(); //remove last qestion
+            }
+            Console.Clear();
+            double finalPercent = ((double)correctCount / questions.Count) * 100;
+            Console.WriteLine($"You got {correctCount} correct / {questions.Count} Questions");
+            Console.WriteLine($"You Got {finalPercent}%");
+            Console.WriteLine("Press Any Key To Exit...");
+            Console.ReadKey();
         }
     }
 }
