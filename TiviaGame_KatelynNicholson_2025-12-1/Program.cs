@@ -87,6 +87,7 @@ namespace TiviaGame_KatelynNicholson_2025_12_1
 
         static void PrintQuestions()
         {
+
             //get length of questions
             for (int Qu = 0; Qu < questions.Count; Qu++)
             {
@@ -106,14 +107,20 @@ namespace TiviaGame_KatelynNicholson_2025_12_1
                 Console.Write("Your answer: ");
                 string input = Console.ReadLine(); //player enters answer of 1 2 3 or 4
 
+                double scorePercent = ((double)correctCount / questions.Count) * 100;
+
                 //try parse: turn input to coice and check choice is equal to the correct answer
                 if (int.TryParse(input, out int choice) && choice - 1 == q.CorrectAnswer)
                 {
                     correctCount++;
                     Console.WriteLine("Correct!");
+                    Console.WriteLine($"Answered Correctly: {scorePercent}%");
                 }
                 else
+                {
                     Console.WriteLine($"Wrong!");
+                    Console.WriteLine($"Answered Correctly: {scorePercent}%");
+                }
             }
 
         }
