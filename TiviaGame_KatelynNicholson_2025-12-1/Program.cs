@@ -2,7 +2,6 @@
 using System.Linq;
 using System.Collections.Generic;
 
-
 namespace TiviaGame_KatelynNicholson_2025_12_1
 {
     internal class Program
@@ -87,7 +86,6 @@ namespace TiviaGame_KatelynNicholson_2025_12_1
 
         static void PrintQuestions()
         {
-
             //get length of questions
             for (int Qu = 0; Qu < questions.Count; Qu++)
             {
@@ -114,7 +112,6 @@ namespace TiviaGame_KatelynNicholson_2025_12_1
                     correctCount++;
                     Console.WriteLine("Correct!");
 
-
                     double scorePercent = ((double)correctCount / questions.Count) * 100;
                     Console.WriteLine($"Answered {correctCount} Correct / {questions.Count} Questions.You got {scorePercent}% Correct");
                     Console.WriteLine("Press Any Key for the Next Question!");
@@ -130,6 +127,7 @@ namespace TiviaGame_KatelynNicholson_2025_12_1
                 Console.ReadKey();
                 Console.Clear(); //remove last qestion
             }
+            //THE END/FINAL SCORE
             Console.Clear();
             double finalPercent = ((double)correctCount / questions.Count) * 100;
             Console.WriteLine($"You got {correctCount} correct / {questions.Count} Questions");
