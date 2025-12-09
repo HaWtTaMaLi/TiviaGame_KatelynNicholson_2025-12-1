@@ -130,6 +130,25 @@ namespace TiviaGame_KatelynNicholson_2025_12_1
                      "false" //3
                  },
                  CorrectAnswer = 3,
+                 ID = QuestionID.QuestionSix,
+             },
+
+             new Question
+             {
+                 Ask = "Where in this line of code would you put Debug.Log?: int score = 10 + 3;",
+                 Options = new string[]
+                 {
+                     "Before the equals sign", //0
+                     "You can't put Debug.Log here in a normal C# console program, it's Unity specific.", //1
+                     "After the semicolon", //2
+                     "Captains.Log(855); //They have all officially lost their minds" //3
+                 },
+                 CorrectAnswer = 1, //and Captains.Log(855);
+                 ID = QuestionID.QuestionSeven,
+             },
+
+             new Question
+             {
 
              }
         };
