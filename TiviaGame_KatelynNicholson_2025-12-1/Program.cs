@@ -54,10 +54,10 @@ namespace TiviaGame_KatelynNicholson_2025_12_1
                 Ask = "What index does an array start at in C#?",
                 Options = new string[]
                 {
-                    "0",    //0
-                    "1",    //1
-                    "0.5",  //2
-                    "-0"    //3
+                    "0", //0
+                    "1", //1
+                    "0.5", //2
+                    "-0"  //3
                 },
                 CorrectAnswer = 0,
                 ID = QuestionID.QuestionOne,
@@ -71,7 +71,7 @@ namespace TiviaGame_KatelynNicholson_2025_12_1
                      "||", //0
                      "<=", //1
                      "==", //2
-                     "&&"  //3
+                     "&&" //3
                  },
                  CorrectAnswer = 3,
                  ID = QuestionID.QuestionTwo,
@@ -96,14 +96,42 @@ namespace TiviaGame_KatelynNicholson_2025_12_1
                  Ask = "Your score shows 33.3333333333333%. Which method would you use to fix this?", //this was a problem i came across too lol 
                  Options = new string[]
                  {
-                     "Ceil",  //0
+                     "Ceil", //0
                      "Round", //1
-                     "Lerp",  //3
-                     "Floor"  //4
+                     "Lerp", //3
+                     "Floor" //4
                  },
                  CorrectAnswer = 1,
                  ID = QuestionID.QuestionFour,
              },
+             
+             new Question
+             {
+                 Ask = "What does Console.Clear() do?",
+                 Options = new string[]
+                 {
+                     "Clears the console screen", //0
+                     "Closes the program", //1
+                     "Resets variables", //3
+                     "Empties your trash bin" //4
+                 },
+                 CorrectAnswer = 0,
+                 ID = QuestionID.QuestionFive,
+             },
+
+             new Question
+             {
+                 Ask = "What is the default value of a bool in C#?",
+                 Options = new string[]
+                 {
+                     "null", //0
+                     "true", //1
+                     "0", //2
+                     "false" //3
+                 },
+                 CorrectAnswer = 3,
+
+             }
         };
 
         static int correctCount = 0;
