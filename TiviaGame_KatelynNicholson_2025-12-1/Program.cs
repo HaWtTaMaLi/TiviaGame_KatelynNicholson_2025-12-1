@@ -126,9 +126,11 @@ namespace TiviaGame_KatelynNicholson_2025_12_1
             while (true)
             {
                 Console.Clear();
+                Console.ForegroundColor = ConsoleColor.Blue;
                 Console.WriteLine("╔════════════════════════════╗");
                 Console.WriteLine("      Enter your name: ");
                 Console.WriteLine("╚════════════════════════════╝");
+                Console.ResetColor();
                 string playerInput = Console.ReadLine();
                 Console.Clear();
                 //playerName = Console.ReadLine(); //players name = player input
@@ -136,18 +138,22 @@ namespace TiviaGame_KatelynNicholson_2025_12_1
                 //is it empty?
                 if (string.IsNullOrWhiteSpace(playerInput))
                 {
+                    Console.ForegroundColor = ConsoleColor.Blue;
                     Console.WriteLine("╔═══════════════════════════╗");
                     Console.WriteLine("   Name can not be empty");
                     Console.WriteLine("╚═══════════════════════════╝");
+                    Console.ResetColor();
                     Console.ReadKey();
                     continue;
                 }
                 // is it three characters long?
                 if (playerInput.Length < 3)
                 {
+                    Console.ForegroundColor = ConsoleColor.Blue;
                     Console.WriteLine("╔════════════════════════════════════════════╗");
                     Console.WriteLine("  name must have at least three characters.");
                     Console.WriteLine("╚════════════════════════════════════════════╝");
+                    Console.ResetColor();
                     Console.ReadKey();
                     continue;
                 }
@@ -165,9 +171,11 @@ namespace TiviaGame_KatelynNicholson_2025_12_1
                 //if they dont have letters then...
                 if (isLetter)
                 {
+                    Console.ForegroundColor = ConsoleColor.Blue;
                     Console.WriteLine("╔═════════════════════════════╗");
                     Console.WriteLine("  Name can't contain numbers.");
                     Console.WriteLine("╚═════════════════════════════╝");
+                    Console.ResetColor();
                     Console.ReadKey();
                     continue; 
                 }
@@ -186,7 +194,8 @@ namespace TiviaGame_KatelynNicholson_2025_12_1
 
                 while (true)
                 {
-                    Console.WriteLine("╔════════════════════════════════════════════════════════════════════╗");
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.WriteLine("╔════════════════════════════════════════════════════════════════════════════════╗");
                     //Print Ask              
                     Console.WriteLine($"  {(int)q.ID + 1}. {q.Ask}");
                     Console.WriteLine();//add space between questions and answere
@@ -197,7 +206,8 @@ namespace TiviaGame_KatelynNicholson_2025_12_1
                         //Print Options
                         Console.WriteLine($"  {Op + 1}. {q.Options[Op]}");
                     }
-                    Console.WriteLine("╚════════════════════════════════════════════════════════════════════╝");
+                    Console.WriteLine("╚════════════════════════════════════════════════════════════════════════════════╝");
+                    Console.ResetColor();
 
                     //get player input
                     Console.Write("Your answer 1, 2, 3 or 4: ");
@@ -230,9 +240,11 @@ namespace TiviaGame_KatelynNicholson_2025_12_1
                     }
                     else //if anything other than 1,2,3 or 4 is entered
                     {
+                        Console.ForegroundColor = ConsoleColor.Blue;
                         Console.WriteLine("╔═════════════════════════════╗");
                         Console.WriteLine("  Please enter a valid answer.");
                         Console.WriteLine("╚═════════════════════════════╝");
+                        Console.ResetColor();
                         Console.ReadKey();
                         Console.Clear();
                     }
@@ -254,10 +266,12 @@ namespace TiviaGame_KatelynNicholson_2025_12_1
         {
             double scorePercent = ((double)correctCount / questions.Count) * 100; 
             Console.WriteLine($"Current Question #: {(int)id + 1}");
-            Console.WriteLine("╔════════════════════════════════════════════╗");
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("╔═════════════════════════════════════════════╗");
             Console.WriteLine($"  {correctCount} Correct / {questions.Count} Questions.You got {Math.Round(scorePercent)}% Correct");
             Console.WriteLine($"  {PerformanceMessage(scorePercent)}");
-            Console.WriteLine("╚════════════════════════════════════════════╝");
+            Console.WriteLine("╚═════════════════════════════════════════════╝");
+            Console.ResetColor();
             Console.WriteLine("  Press Any Key for the Next Question!");
 
         }
@@ -268,10 +282,13 @@ namespace TiviaGame_KatelynNicholson_2025_12_1
             Console.Clear();
             double finalPercent = ((double)correctCount / questions.Count) * 100;
             Console.WriteLine($"  {playerName}'s your Score is: ");
-            Console.WriteLine("╔════════════════════════════════════════════════╗");
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("╔═════════════════════════════════════════════════╗");
             Console.WriteLine($"  {correctCount} correct / {questions.Count} Questions");
-            Console.WriteLine($"  {playerName} you got {Math.Round(finalPercent)}% Right! {PerformanceMessage(finalPercent)}"); //Round = rounding to the nearest percent
-            Console.WriteLine("╚════════════════════════════════════════════════╝");
+            Console.WriteLine($"  {playerName} you got {Math.Round(finalPercent)}% Right!"); //Round = rounding to the nearest percent
+            Console.WriteLine($"  {PerformanceMessage(finalPercent)}");
+            Console.WriteLine("╚═════════════════════════════════════════════════╝");
+            Console.ResetColor();
             Console.WriteLine("  Press Any Key To Continue...");
             Console.ReadKey();
         }
@@ -280,9 +297,11 @@ namespace TiviaGame_KatelynNicholson_2025_12_1
         {
             while (true)
             {
+                Console.ForegroundColor= ConsoleColor.Blue;
                 Console.WriteLine("╔════════════════════╗");
                 Console.WriteLine("  PlayAgain? Y/N: ");
                 Console.WriteLine("╚════════════════════╝");
+                Console.ResetColor();
                 string input = Console.ReadLine()?.Trim().ToUpper(); //player input
 
                 if(input == "Y")
