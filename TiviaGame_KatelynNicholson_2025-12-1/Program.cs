@@ -24,7 +24,7 @@ namespace TiviaGame_KatelynNicholson_2025_12_1
        
 
         //Question Index
-        enum QuestionID
+        /*enum QuestionID // i added this because i wanted to make the qwuestions random
         {
             QuestionOne,
             QuestionTwo, 
@@ -36,7 +36,7 @@ namespace TiviaGame_KatelynNicholson_2025_12_1
             QuestionEight,
             QuestionNine,
             QuestionTen,
-        }
+        }*/
 
         //blueprint "class"
         class Question
@@ -89,7 +89,7 @@ namespace TiviaGame_KatelynNicholson_2025_12_1
 
              new Question
              {
-                 Ask = "Your score shows 33.3333333333333%. Which method would you use to fix this?",
+                 Ask = "Your score shows 33.3333333333333%. Which method would you use to fix this?", //this was a problem i came across too lol 
                  Options = new string[]
                  {
                      "Ceil",  //0
@@ -106,8 +106,14 @@ namespace TiviaGame_KatelynNicholson_2025_12_1
 
         static void Main()
         {
-            AskPlayerName();
-            PrintQuestions();
+            bool playAgain = true;
+            while (playAgain)
+            {
+                AskPlayerName();
+                PrintQuestions();
+
+                playAgain = PlayAgain();
+            }
         }
 
         static void AskPlayerName()
@@ -133,19 +139,19 @@ namespace TiviaGame_KatelynNicholson_2025_12_1
                     Console.ReadKey();
                     continue;
                 }
-                //check if they are numbers
-                bool isNumber = false;
+                //check if they are 
+                bool isLetter = false;
                 foreach (char ABC in playerInput)
                 {
                     //abc = each input the player entered
-                    if (char.IsDigit(ABC)) //if ABC equals a digit then ....
+                    if (!char.IsLetter(ABC)) //if ABC doesnt equal Letter then .... //isDigit didnt stop things like: .,"/({
                     {
-                        isNumber = true;
+                        isLetter = true;
                         break;
                     }
                 }
-                //if they have numbers then...
-                if (isNumber)
+                //if they dont have letters then...
+                if (isLetter)
                 {
                     Console.WriteLine("Name can't contain numbers.");
                     Console.ReadKey();
@@ -227,9 +233,32 @@ namespace TiviaGame_KatelynNicholson_2025_12_1
             double finalPercent = ((double)correctCount / questions.Count) * 100;
             Console.WriteLine($"{playerName}'s your Score is: ");
             Console.WriteLine($"{correctCount} correct / {questions.Count} Questions");
-            Console.WriteLine($"{playerName} got {Math.Round(finalPercent)}% Right"); //Round = rounding to the nearest percent
-            Console.WriteLine("Press Any Key To Exit...");
+            Console.WriteLine($"{playerName} you got {Math.Round(finalPercent)}% Right"); //Round = rounding to the nearest percent
+            Console.WriteLine("Press Any Key To Continue...");
             Console.ReadKey();
+        }
+
+        static bool PlayAgain()
+        {
+            while (true)
+            {
+                Console.WriteLine("PlayAgain? Y/N: ");
+                string input = Console.ReadLine()?.Trim().ToUpper(); //player input
+
+                if(input == "Y")
+                {
+                    correctCount = 0; //reset score
+                    return true; //restart game
+                }
+                else if (input == "N")
+                {
+                    return false; //exit game
+                }
+                else
+                {
+                    Console.ReadKey();
+                }
+            }
         }
     }
 }
