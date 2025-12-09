@@ -69,7 +69,7 @@ namespace TiviaGame_KatelynNicholson_2025_12_1
                      "||", //0
                      "<=", //1
                      "==", //2
-                     "&&" //3
+                     "&&"  //3
                  },
                  CorrectAnswer = 3
              },  //QuestionTwo
@@ -86,6 +86,19 @@ namespace TiviaGame_KatelynNicholson_2025_12_1
                  },
                  CorrectAnswer = 2
              }, //QuestionThree
+
+             new Question
+             {
+                 Ask = "Your score shows 33.3333333333333%. Which method would you use to fix this?",
+                 Options = new string[]
+                 {
+                     "Ceil",  //0
+                     "Round", //1
+                     "Lerp",  //3
+                     "Floor"  //4
+                 },
+                 CorrectAnswer = 1
+             },
         };
 
         static int correctCount = 0;
@@ -169,7 +182,7 @@ namespace TiviaGame_KatelynNicholson_2025_12_1
                     Console.Clear();
 
                     //try parse: turn input to coice and check choice is equal to the correct answer
-                    if (int.TryParse(input, out int choice) && choice >= 1 && choice <= 4)
+                    if (int.TryParse(input, out int choice) && choice >= 1 && choice <= 4) // >= 1 && <=4 means the answer needs to be 1,2,3 or 4
                     {
                         //if correct
                         if (choice - 1 == q.CorrectAnswer)
@@ -188,7 +201,7 @@ namespace TiviaGame_KatelynNicholson_2025_12_1
                         Console.Clear(); //remove last qestion
                         break;
                     }
-                    else
+                    else //if anything other than 1,2,3 or 4 is entered
                     {
                         Console.WriteLine("Please enter a valid answer.");
                         Console.ReadKey();
@@ -207,11 +220,12 @@ namespace TiviaGame_KatelynNicholson_2025_12_1
             Console.WriteLine("Press Any Key for the Next Question!");
         }
 
+        //"HUD"
         static void FinalScore()
         {
             Console.Clear();
             double finalPercent = ((double)correctCount / questions.Count) * 100;
-            Console.WriteLine($"{playerName}'s Score is: ");
+            Console.WriteLine($"{playerName}'s your Score is: ");
             Console.WriteLine($"{correctCount} correct / {questions.Count} Questions");
             Console.WriteLine($"{playerName} got {Math.Round(finalPercent)}% Right"); //Round = rounding to the nearest percent
             Console.WriteLine("Press Any Key To Exit...");
