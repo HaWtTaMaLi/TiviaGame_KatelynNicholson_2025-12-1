@@ -24,7 +24,7 @@ namespace TiviaGame_KatelynNicholson_2025_12_1
        
 
         //Question Index
-        /*enum QuestionID // i added this because i wanted to make the qwuestions random
+        enum QuestionID
         {
             QuestionOne,
             QuestionTwo, 
@@ -36,7 +36,7 @@ namespace TiviaGame_KatelynNicholson_2025_12_1
             QuestionEight,
             QuestionNine,
             QuestionTen,
-        }*/
+        }
 
         //blueprint "class"
         class Question
@@ -44,6 +44,7 @@ namespace TiviaGame_KatelynNicholson_2025_12_1
             public string Ask;    //Question
             public string[] Options;  //multiple choice
             public int CorrectAnswer; //where the right answer is stored
+            public QuestionID ID; //store the enum number
         }
 
         static List<Question> questions = new List<Question>
@@ -58,8 +59,9 @@ namespace TiviaGame_KatelynNicholson_2025_12_1
                     "0.5",  //2
                     "-0"    //3
                 },
-                CorrectAnswer = 0
-            },  //QuestionOne
+                CorrectAnswer = 0,
+                ID = QuestionID.QuestionOne,
+            },
 
              new Question
              {
@@ -71,8 +73,9 @@ namespace TiviaGame_KatelynNicholson_2025_12_1
                      "==", //2
                      "&&"  //3
                  },
-                 CorrectAnswer = 3
-             },  //QuestionTwo
+                 CorrectAnswer = 3,
+                 ID = QuestionID.QuestionTwo,
+             },  
 
              new Question
              {
@@ -84,8 +87,9 @@ namespace TiviaGame_KatelynNicholson_2025_12_1
                      "Ditects how far a number is from zero, no matter the direction.", //2
                      "Checks the distance between two values" //3
                  },
-                 CorrectAnswer = 2
-             }, //QuestionThree
+                 CorrectAnswer = 2,
+                 ID = QuestionID.QuestionThree,
+             }, 
 
              new Question
              {
@@ -97,7 +101,8 @@ namespace TiviaGame_KatelynNicholson_2025_12_1
                      "Lerp",  //3
                      "Floor"  //4
                  },
-                 CorrectAnswer = 1
+                 CorrectAnswer = 1,
+                 ID = QuestionID.QuestionFour,
              },
         };
 
@@ -123,6 +128,7 @@ namespace TiviaGame_KatelynNicholson_2025_12_1
                 Console.Clear();
                 Console.WriteLine("Enter your name: ");
                 string playerInput = Console.ReadLine();
+                Console.Clear();
                 //playerName = Console.ReadLine(); //players name = player input
                 
                 //is it empty?
@@ -172,8 +178,10 @@ namespace TiviaGame_KatelynNicholson_2025_12_1
 
                 while (true)
                 {
+
                     //Print Ask              
-                    Console.WriteLine(q.Ask);
+                    Console.WriteLine($"{(int)q.ID + 1}. {q.Ask}");
+                    Console.WriteLine();//add space between questions and answere
 
                     //get length of Options string
                     for (int Op = 0; Op < q.Options.Length; Op++)
@@ -181,6 +189,7 @@ namespace TiviaGame_KatelynNicholson_2025_12_1
                         //Print Options
                         Console.WriteLine($"{Op + 1}. {q.Options[Op]}");
                     }
+                    Console.WriteLine();//more spaces
 
                     //get player input
                     Console.Write("Your answer 1, 2, 3 or 4: ");
@@ -233,9 +242,14 @@ namespace TiviaGame_KatelynNicholson_2025_12_1
             double finalPercent = ((double)correctCount / questions.Count) * 100;
             Console.WriteLine($"{playerName}'s your Score is: ");
             Console.WriteLine($"{correctCount} correct / {questions.Count} Questions");
-            Console.WriteLine($"{playerName} you got {Math.Round(finalPercent)}% Right"); //Round = rounding to the nearest percent
+            Console.WriteLine($"{playerName} you got {Math.Round(finalPercent)}% Right! {PerformanceMessage}"); //Round = rounding to the nearest percent
             Console.WriteLine("Press Any Key To Continue...");
             Console.ReadKey();
+        }
+
+        static string PerformanceMessage(double percent)
+        {
+            if ()
         }
 
         static bool PlayAgain()
