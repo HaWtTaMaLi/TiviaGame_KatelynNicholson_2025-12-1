@@ -79,12 +79,12 @@ namespace TiviaGame_KatelynNicholson_2025_12_1
                  Ask = "What does Mathf.Abs do?",
                  Options = new string[]
                  {
-                     "Stops a value from going below or above a set value.",
-                     "Gives you Math tools.",
-                     "Ditects how far a number is from zero, no matter the direction.",
-                     "Checks the distance between two values"
+                     "Stops a value from going below or above a set value.", //0
+                     "Gives you Math tools.", //1
+                     "Ditects how far a number is from zero, no matter the direction.", //2
+                     "Checks the distance between two values" //3
                  },
-                 CorrectAnswer = 3
+                 CorrectAnswer = 2
              }, //QuestionThree
         };
 
@@ -171,28 +171,34 @@ namespace TiviaGame_KatelynNicholson_2025_12_1
                 {
                     correctCount++;
                     Console.WriteLine("Correct!");
-
-                    double scorePercent = ((double)correctCount / questions.Count) * 100;
-                    Console.WriteLine($"Answered {correctCount} Correct / {questions.Count} Questions.You got {scorePercent}% Correct");
-                    Console.WriteLine("Press Any Key for the Next Question!");
+                    AnswerResult();
                 }
                 else
                 {
                     Console.WriteLine($"Wrong!");
-
-                    double scorePercent = ((double)correctCount / questions.Count) * 100;
-                    Console.WriteLine($"Answered {correctCount} Correct / {questions.Count} Questions.You got {scorePercent}% Correct");
-                    Console.WriteLine("Press Any Key for the Next Question!");
+                    AnswerResult();
                 }
                 Console.ReadKey();
                 Console.Clear(); //remove last qestion
             }
             //THE END/FINAL SCORE
+            FinalScore();
+        }
+
+        static void AnswerResult()
+        {
+            double scorePercent = ((double)correctCount / questions.Count) * 100;
+            Console.WriteLine($"{correctCount} Correct / {questions.Count} Questions.You got {Math.Round(scorePercent)}% Correct");
+            Console.WriteLine("Press Any Key for the Next Question!");
+        }
+
+        static void FinalScore()
+        {
             Console.Clear();
             double finalPercent = ((double)correctCount / questions.Count) * 100;
             Console.WriteLine($"{playerName}'s Score is: ");
             Console.WriteLine($"{correctCount} correct / {questions.Count} Questions");
-            Console.WriteLine($"{playerName} got {finalPercent}% Right");
+            Console.WriteLine($"{playerName} got {Math.Round(finalPercent)}% Right"); //Round = rounding to the nearest percent
             Console.WriteLine("Press Any Key To Exit...");
             Console.ReadKey();
         }
