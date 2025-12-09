@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using System.Collections.Generic;
 
 namespace TiviaGame_KatelynNicholson_2025_12_1
@@ -23,7 +22,6 @@ namespace TiviaGame_KatelynNicholson_2025_12_1
         //COLOURS, ASCII art, formatting make it look good
         //add an easter egg? a hidden secret? (include note when submitting if you added an easter egg
        
-
 
         //Question Index
         enum QuestionID
@@ -75,6 +73,19 @@ namespace TiviaGame_KatelynNicholson_2025_12_1
                  },
                  CorrectAnswer = 3
              },  //QuestionTwo
+
+             new Question
+             {
+                 Ask = "What does Mathf.Abs do?",
+                 Options = new string[]
+                 {
+                     "Stops a value from going below or above a set value.",
+                     "Gives you Math tools.",
+                     "Ditects how far a number is from zero, no matter the direction.",
+                     "Checks the distance between two values"
+                 },
+                 CorrectAnswer = 3
+             }, //QuestionThree
         };
 
         static int correctCount = 0;
@@ -88,9 +99,49 @@ namespace TiviaGame_KatelynNicholson_2025_12_1
 
         static void AskPlayerName()
         {
-            Console.Clear();
-            Console.WriteLine("Enter your name: ");
-            playerName = Console.ReadLine(); //players name = player input
+            while (true)
+            {
+                Console.Clear();
+                Console.WriteLine("Enter your name: ");
+                string playerInput = Console.ReadLine();
+                //playerName = Console.ReadLine(); //players name = player input
+                
+                //is it empty?
+                if (string.IsNullOrWhiteSpace(playerInput))
+                {
+                    Console.WriteLine("Name can not be empty");
+                    Console.ReadKey();
+                    continue;
+                }
+                // is it three characters long?
+                if (playerInput.Length < 3)
+                {
+                    Console.WriteLine("name must have at least three characters.");
+                    Console.ReadKey();
+                    continue;
+                }
+                //check if they are numbers
+                bool isNumber = false;
+                foreach (char ABC in playerInput)
+                {
+                    //abc = each input the player entered
+                    if (char.IsDigit(ABC)) //if ABC equals a digit then ....
+                    {
+                        isNumber = true;
+                        break;
+                    }
+                }
+                //if they have numbers then...
+                if (isNumber)
+                {
+                    Console.WriteLine("Name can't contain numbers.");
+                    Console.ReadKey();
+                    continue; 
+                }
+
+                playerName = playerInput; 
+                break;
+            }
         }
 
         static void PrintQuestions()
