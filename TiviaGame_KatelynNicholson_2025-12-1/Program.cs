@@ -78,10 +78,19 @@ namespace TiviaGame_KatelynNicholson_2025_12_1
         };
 
         static int correctCount = 0;
+        static string playerName = ""; 
 
         static void Main()
         {
+            AskPlayerName();
             PrintQuestions();
+        }
+
+        static void AskPlayerName()
+        {
+            Console.Clear();
+            Console.WriteLine("Enter your name: ");
+            playerName = Console.ReadLine(); //players name = player input
         }
 
         static void PrintQuestions()
