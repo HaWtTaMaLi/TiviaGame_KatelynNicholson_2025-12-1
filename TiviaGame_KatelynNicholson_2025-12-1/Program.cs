@@ -204,13 +204,13 @@ namespace TiviaGame_KatelynNicholson_2025_12_1
                         {
                             correctCount++;
                             Console.WriteLine("Correct!");
-                            AnswerResult();
+                            AnswerResult(q.ID);
                         }
                         //if not correct
                         else
                         {
                             Console.WriteLine($"Wrong!");
-                            AnswerResult();
+                            AnswerResult(q.ID);
                         }
                         Console.ReadKey();
                         Console.Clear(); //remove last qestion
@@ -228,10 +228,20 @@ namespace TiviaGame_KatelynNicholson_2025_12_1
             FinalScore();
         }
 
-        static void AnswerResult()
+        static string PerformanceMessage(double percent)
+        {
+            if (percent == 100) return "Look at you, all smart and stuff!";
+            else if (percent >= 80) return "Amazing, You did so well!";
+            else if (percent >= 50) return "Not bad! keep practicing!";
+            else return "Better Luck Next time! Keep Trying.";
+        }
+
+        static void AnswerResult(QuestionID id)
         {
             double scorePercent = ((double)correctCount / questions.Count) * 100;
+            Console.WriteLine($"Current Question #: {(int)id + 1}");
             Console.WriteLine($"{correctCount} Correct / {questions.Count} Questions.You got {Math.Round(scorePercent)}% Correct");
+            Console.WriteLine(PerformanceMessage(scorePercent));
             Console.WriteLine("Press Any Key for the Next Question!");
         }
 
@@ -242,14 +252,9 @@ namespace TiviaGame_KatelynNicholson_2025_12_1
             double finalPercent = ((double)correctCount / questions.Count) * 100;
             Console.WriteLine($"{playerName}'s your Score is: ");
             Console.WriteLine($"{correctCount} correct / {questions.Count} Questions");
-            Console.WriteLine($"{playerName} you got {Math.Round(finalPercent)}% Right! {PerformanceMessage}"); //Round = rounding to the nearest percent
+            Console.WriteLine($"{playerName} you got {Math.Round(finalPercent)}% Right! {PerformanceMessage(finalPercent)}"); //Round = rounding to the nearest percent
             Console.WriteLine("Press Any Key To Continue...");
             Console.ReadKey();
-        }
-
-        static string PerformanceMessage(double percent)
-        {
-            if ()
         }
 
         static bool PlayAgain()
