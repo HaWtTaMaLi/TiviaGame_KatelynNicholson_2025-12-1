@@ -78,7 +78,7 @@ namespace TiviaGame_KatelynNicholson_2025_12_1
         };
 
         static int correctCount = 0;
-        static string playerName = ""; 
+        static string playerName = ""; //empty place holder
 
         static void Main()
         {
@@ -139,8 +139,9 @@ namespace TiviaGame_KatelynNicholson_2025_12_1
             //THE END/FINAL SCORE
             Console.Clear();
             double finalPercent = ((double)correctCount / questions.Count) * 100;
-            Console.WriteLine($"You got {correctCount} correct / {questions.Count} Questions");
-            Console.WriteLine($"You Got {finalPercent}%");
+            Console.WriteLine($"{playerName}'s Score is: ");
+            Console.WriteLine($"{correctCount} correct / {questions.Count} Questions");
+            Console.WriteLine($"{playerName} got {finalPercent}% Right");
             Console.WriteLine("Press Any Key To Exit...");
             Console.ReadKey();
         }
