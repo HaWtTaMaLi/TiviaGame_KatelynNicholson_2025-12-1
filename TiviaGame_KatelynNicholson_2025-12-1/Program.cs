@@ -36,6 +36,8 @@ namespace TiviaGame_KatelynNicholson_2025_12_1
             QuestionEight,
             QuestionNine,
             QuestionTen,
+            //Add More Questions here
+            //QuestionEleven,
         }
 
         //blueprint "class"
@@ -45,6 +47,7 @@ namespace TiviaGame_KatelynNicholson_2025_12_1
             public string[] Options;  //multiple choice
             public int CorrectAnswer; //where the right answer is stored
             public QuestionID ID; //store the enum number
+            //Add More Options here
         }
 
         static List<Question> questions = new List<Question>
@@ -149,8 +152,63 @@ namespace TiviaGame_KatelynNicholson_2025_12_1
 
              new Question
              {
+                 Ask = "What is the defult value of an integer in C#?",
+                 Options = new string[]
+                 {
+                     "1",
+                     "0",
+                     "true",
+                     "null"
+                 },
+                 CorrectAnswer = 2, 
+                 ID = QuestionID.QuestionEight,
+             },
 
-             }
+             new Question
+             {
+                 Ask = "",
+                 Options = new string[]
+                 {
+                     "",
+                     "",
+                     "",
+                     ""
+                 },
+                 CorrectAnswer = 0,
+                 ID = QuestionID.QuestionNine,
+             },
+
+             new Question
+             {
+                 Ask = "",
+                 Options = new string[]
+                 {
+                     "",
+                     "",
+                     "",
+                     ""
+                 },
+                 CorrectAnswer = 0,
+                 ID = QuestionID.QuestionTen,
+             },
+
+             //Add more questions here
+             /*
+             new Question
+             {
+                 Ask = "Question goes here",
+                 Options = new string[]
+                 {
+                     "Option 1", //0
+                     "Option 2", //1
+                     "Option 3", //2
+                     "Option 4" //3
+                 },
+                 CorrectAnswer = 0,
+                 ID = QuestionID.QuestionEleven,
+             },
+             */
+
         };
 
         static int correctCount = 0;
@@ -242,7 +300,7 @@ namespace TiviaGame_KatelynNicholson_2025_12_1
                 while (true)
                 {
                     Console.ForegroundColor = ConsoleColor.Blue;
-                    Console.WriteLine("╔════════════════════════════════════════════════════════════════════════════════╗");
+                    Console.WriteLine("╔══════════════════════════════════════════════════════════════════════════════════════╗");
                     //Print Ask              
                     Console.WriteLine($"  {(int)q.ID + 1}. {q.Ask}");
                     Console.WriteLine();//add space between questions and answere
@@ -253,7 +311,7 @@ namespace TiviaGame_KatelynNicholson_2025_12_1
                         //Print Options
                         Console.WriteLine($"  {Op + 1}. {q.Options[Op]}");
                     }
-                    Console.WriteLine("╚════════════════════════════════════════════════════════════════════════════════╝");
+                    Console.WriteLine("╚══════════════════════════════════════════════════════════════════════════════════════╝");
                     Console.ResetColor();
 
                     //get player input
