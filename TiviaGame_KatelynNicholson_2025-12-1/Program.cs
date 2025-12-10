@@ -264,22 +264,36 @@ namespace TiviaGame_KatelynNicholson_2025_12_1
                     //try parse: turn input to coice and check choice is equal to the correct answer
                     if (int.TryParse(input, out int choice) && choice >= 1 && choice <= 4) // >= 1 && <=4 means the answer needs to be 1,2,3 or 4
                     {
-                        //if correct
-                        if (choice - 1 == q.CorrectAnswer)
+                        //EASTER EGG
+                        if (q.ID == QuestionID.QuestionSeven) //My favorite Number and My Lucky Number lol
                         {
-                            correctCount++;
-                            Console.ForegroundColor = ConsoleColor.Green;
-                            Console.WriteLine("Correct!");
-                            Console.ResetColor();
-                            AnswerResult(q.ID);
+                            if (choice - 1 == 1 || choice - 1 == 3)
+                            {
+                                correctCount++;
+                                DisplayResults("EasterCorrect");
+                                AnswerResult(q.ID);
+                            }
+                            else
+                            {
+                                DisplayResults("EasterWrong");
+                                AnswerResult(q.ID);
+                            }
                         }
-                        //if not correct
                         else
                         {
-                            Console.ForegroundColor = ConsoleColor.Red;
-                            Console.WriteLine($"Wrong!");
-                            Console.ResetColor();
-                            AnswerResult(q.ID);
+                            //if correct
+                            if (choice - 1 == q.CorrectAnswer)
+                            {
+                                correctCount++;
+                                DisplayResults("Correct");
+                                AnswerResult(q.ID);
+                            }
+                            //if not correct
+                            else
+                            {
+                                DisplayResults("Wrong");
+                                AnswerResult(q.ID);
+                            }
                         }
                         Console.ReadKey();
                         Console.Clear(); //remove last qestion
@@ -299,6 +313,36 @@ namespace TiviaGame_KatelynNicholson_2025_12_1
             }
             //THE END/FINAL SCORE
             FinalScore();
+        }
+
+        static void DisplayResults(string resultType)
+        {
+            switch (resultType)
+            {
+                case "Correct":
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("Correct!");
+                    Console.ResetColor();
+                    break;
+
+                case "Wrong":
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine($"Wrong!");
+                    Console.ResetColor();
+                    break;
+
+                case "EasterCorrect":
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Correct! Haha!");
+                Console.ResetColor();
+                    break;
+
+                case "EasterWrong":
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine($"Buddy....");
+                Console.ResetColor();
+                    break;
+            }
         }
 
         static string PerformanceMessage(double percent)
