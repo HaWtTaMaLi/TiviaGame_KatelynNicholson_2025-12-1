@@ -155,24 +155,24 @@ namespace TiviaGame_KatelynNicholson_2025_12_1
                  Ask = "What is the defult value of an integer in C#?",
                  Options = new string[]
                  {
-                     "1",
-                     "0",
-                     "true",
-                     "null"
+                     "1", //0
+                     "0", //1
+                     "true", //2
+                     "null" //3
                  },
-                 CorrectAnswer = 2, 
+                 CorrectAnswer = 1, 
                  ID = QuestionID.QuestionEight,
              },
 
              new Question
              {
-                 Ask = "",
+                 Ask = "What does Math.Abs(-5) return?",
                  Options = new string[]
                  {
-                     "",
-                     "",
-                     "",
-                     ""
+                     "5", //0
+                     "0", //1
+                     "3", //2
+                     "-5" //3
                  },
                  CorrectAnswer = 0,
                  ID = QuestionID.QuestionNine,
@@ -180,15 +180,15 @@ namespace TiviaGame_KatelynNicholson_2025_12_1
 
              new Question
              {
-                 Ask = "",
+                 Ask = "What does int a = 5 / 0; return?",
                  Options = new string[]
                  {
-                     "",
-                     "",
-                     "",
-                     ""
+                     "0", //0
+                     "5", //1
+                     "Program crashes with DividedByZeroException", //2
+                     "Returns Infinity" //3
                  },
-                 CorrectAnswer = 0,
+                 CorrectAnswer = 2,
                  ID = QuestionID.QuestionTen,
              },
 
@@ -390,15 +390,16 @@ namespace TiviaGame_KatelynNicholson_2025_12_1
                     break;
 
                 case "EasterCorrect":
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("Correct! Haha!");
-                Console.ResetColor();
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("Correct! Haha!");
+                    Console.ResetColor();
                     break;
 
                 case "EasterWrong":
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"Buddy....");
-                Console.ResetColor();
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine($"Buddy....");
+                    Console.WriteLine($"Wrong!");
+                    Console.ResetColor();
                     break;
             }
         }
